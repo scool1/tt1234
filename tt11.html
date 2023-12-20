@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>صفحة الصوت</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    header {
+      width: 100%;
+      padding: 20px;
+      background-color: #f0f0f0; /* لون الخلفية يمكن تغييره حسب الاحتياجات */
+      text-align: center;
+    }
+
+    .icon-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .icon {
+      margin: 5%;
+      cursor: pointer;
+      flex: 0 0 40%; /* تحديد حجم الأيقونات بناءً على التصميم المطلوب */
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>اسم المشروع أو صورة</h1>
+    <!-- يمكنك إضافة النص أو الصورة المرادة هنا -->
+  </header>
+
+  <div class="icon-container">
+
+    <!-- أيقونة 1 -->
+    <div class="icon" onclick="toggleSound('s1.mp3', 'icon1')">
+      <img id="icon1" src="p1.png" alt="أيقونة 1">
+    </div>
+
+    <!-- أيقونة 2 -->
+    <div class="icon" onclick="toggleSound('s2.mp3', 'icon2')">
+      <img id="icon2" src="p2.png" alt="أيقونة 2">
+    </div>
+
+    <!-- أيقونة 3 -->
+    <div class="icon" onclick="toggleSound('s3.mp3', 'icon3')">
+      <img id="icon3" src="p3.png" alt="أيقونة 3">
+    </div>
+
+    <!-- أيقونة 4 -->
+    <div class="icon" onclick="toggleSound('s4.mp3', 'icon4')">
+      <img id="icon4" src="p4.png" alt="أيقونة 4">
+    </div>
+
+    <!-- أيقونة 5 -->
+    <div class="icon" onclick="toggleSound('s1.mp3', 'icon5')">
+      <img id="icon5" src="p1.png" alt="أيقونة 5">
+    </div>
+
+    <!-- أيقونة 6 -->
+    <div class="icon" onclick="toggleSound('s1.mp3', 'icon6')">
+      <img id="icon6" src="p1.png" alt="أيقونة 6">
+    </div>
+
+    <!-- أيقونة 7 -->
+    <div class="icon" onclick="toggleSound('s1.mp3', 'icon7')">
+      <img id="icon7" src="p1.png" alt="أيقونة 7">
+    </div>
+
+    <!-- أيقونة 8 -->
+    <div class="icon" onclick="toggleSound('s1.mp3', 'icon8')">
+      <img id="icon8" src="p1.png" alt="أيقونة 8">
+    </div>
+
+  </div>
+
+  <script>
+    var audioStates = {};
+
+    function toggleSound(audioFile, iconId) {
+      if (!audioStates[iconId] || audioStates[iconId].paused) {
+        if (audioStates[iconId]) {
+          audioStates[iconId].pause();
+        }
+        audioStates[iconId] = new Audio(audioFile);
+        audioStates[iconId].play();
+      } else {
+        audioStates[iconId].pause();
+      }
+    }
+  </script>
+
+</body>
+</html>
